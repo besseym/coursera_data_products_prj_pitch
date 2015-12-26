@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Child Height Prediction Product</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Child Height Prediction Product">
+  <meta name="author" content="MSB">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Child Height Prediction Product</h1>
+    <h2>A Coursera Data Products Project</h2>
+    <p>MSB<br/>Data Scientist</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Child Height Prediction Product</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The Child Height Prediction Product (CHPP) is an interactive website that predicts a child&#39;s height based on the child&#39;s gender and the height of each of the child&#39;s parents. The website was developed as a course project for the Developing Data Products Coursera Course.</p>
+
+<p><a href="https://www.coursera.org/learn/data-products">https://www.coursera.org/learn/data-products</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Benefits</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Many excited couples are interested in knowing the potential physical characteristics of their unborn offspring such as gender and eye color. This website will be a useful tool in providing these couples with a statistically accurate prediction for the possible height of their children.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Steps</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>To use the CHPP website you perform the following steps:</p>
+
+<ol>
+<li>Input father&#39;s height</li>
+<li>Input mother&#39;s height</li>
+<li>Input the gender of the child</li>
+<li>Click the &quot;Calculate&quot; button</li>
+</ol>
+
+<p><img src="assets/img/screenshot.png" alt="Child Height Prediction Screenshot"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Data</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The Galton Families dataset informs the prediction algorithm which powers the CHPP.
+<a href="http://www.inside-r.org/packages/cran/HistData/docs/GaltonFamilies">http://www.inside-r.org/packages/cran/HistData/docs/GaltonFamilies</a></p>
+
+<p><img src="assets/fig/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>Algorithm</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The CHPP prediction algorithm uses a linear model with explanatory variables father&#39;s height, mother&#39;s height and child&#39;s gender with dependent variable child height.</p>
+
+<h3>Linear Model Prediction Example</h3>
+
+<pre><code class="r">lm &lt;- lm(childHeight ~ father + mother + gender, data = GaltonFamilies)
+df_newdata &lt;- data.frame(father = 80.5, mother = 59.0, gender = &#39;male&#39;)
+predict(lm, newdata = df_newdata, interval = &quot;prediction&quot;)
+</code></pre>
+
+<pre><code>##        fit      lwr      upr
+## 1 72.09911 67.78504 76.41318
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>Conclusion</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The Child Height Prediction Product will continue to become a more useful tool. Additional family data wil be gathered and added to the model. This additional data will make the model&#39;s prediction algorithm more accurate which will utimatly make the tool more desirable for curious couples.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Child Height Prediction Product'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Benefits'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Steps'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Data'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Algorithm'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='Conclusion'>
+         6
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
